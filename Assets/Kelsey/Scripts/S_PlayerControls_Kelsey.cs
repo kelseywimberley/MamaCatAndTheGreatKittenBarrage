@@ -4,30 +4,39 @@ using UnityEngine;
 
 public class S_PlayerControls_Kelsey : MonoBehaviour
 {
-    private Vector3 tempTransform;
-    // Start is called before the first frame update
+    private Rigidbody2D rb;
+
     void Start()
     {
-        tempTransform = transform.position;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
-            tempTransform.x -= 1;
-           
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            tempTransform.x += 1;
-        }
-        else if(Input.GetKeyDown(KeyCode.W))
-        {
-
+            transform.position += new Vector3(-0.005f, 0, 0);
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, tempTransform, Time.deltaTime);
+        if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        {
+            transform.position += new Vector3(0.005f, 0, 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) < 0.01f)
+        {
+            rb.velocity = new Vector3(0, 15.0f, 0);
+        }
+
+        // Go through GoThroughPlatform layer objects when going up
+        if (rb.velocity.y > 0)
+        {
+            Physics2D.IgnoreLayerCollision(3, 7, true);
+        }
+        // Don't go through GoThroughPlatform layer objects when falling down
+        else
+        {
+            Physics2D.IgnoreLayerCollision(3, 7, false);
+        }
     }
 }
