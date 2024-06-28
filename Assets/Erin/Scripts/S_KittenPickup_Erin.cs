@@ -34,10 +34,10 @@ public class S_KittenPickup_Erin : MonoBehaviour
      * Checks to see if the kitten can be picked up by
      * the player
      */
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         //if the player has collided with the kitten gameObject
-        if(collision.gameObject.name == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             //set collidedflag = to true
             collidedFlag = true;
@@ -51,10 +51,10 @@ public class S_KittenPickup_Erin : MonoBehaviour
      * Checks to see if the kitten can no longer be picked
      * up by the player
      */
-    void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         //if the player is no longer colliding with the kitten gameObject
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             //set collidedflag = to false
             collidedFlag = false;
@@ -67,12 +67,12 @@ public class S_KittenPickup_Erin : MonoBehaviour
     void Update()
     {
         //if the kitten can be picked up & the return key is pressed
-        if(collidedFlag == true && Input.GetKeyDown(KeyCode.Return))
+        if(collidedFlag == true && Input.GetKeyDown(KeyCode.Return) && !GameObject.FindGameObjectWithTag("PickedupKitten"))
         {
             //spawn the picked up kitten gameObject at the player's location
             Instantiate(pickedUpKitten,pickedUpPosition, Quaternion.identity);
             //destroy this gameObject since this kitten has now been picked up
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }
