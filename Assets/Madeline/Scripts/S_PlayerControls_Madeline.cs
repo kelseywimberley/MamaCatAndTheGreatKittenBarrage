@@ -6,26 +6,27 @@ public class S_PlayerControls_Madeline : MonoBehaviour
 {
 
     [Range(1.0f, 10.0f)]
-    public float moveSpeed;
+    public float moveSpeed = 5;
 
     [Range(0.01f, 0.5f)]
-    public float timeToMaxSpeed;
+    public float timeToMaxSpeed = 0.1f;
 
     [Range(5.0f, 20.0f)]
-    public float smallJumpPower;
+    public float smallJumpPower = 10;
 
     [Range(5.0f, 50.0f)]
-    public float bigJumpPower;
+    public float bigJumpPower = 30;
 
     [Range(0.0f, 1.0f)]
-    public float minJumpHoldTime;
+    public float minJumpHoldTime = .1f;
 
     [Range(0.0f, 2.0f)]
-    public float maxJumpHoldTime;
+    public float maxJumpHoldTime = 1;
 
     
 
-    public AnimationCurve jumpCurve;
+    public AnimationCurve jumpCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
+
 
 
     public LineRenderer jumpLine;
