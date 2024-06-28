@@ -15,12 +15,12 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
-            transform.position += new Vector3(-0.005f, 0, 0);
+            transform.position += new Vector3(-0.01f, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
-            transform.position += new Vector3(0.005f, 0, 0);
+            transform.position += new Vector3(0.01f, 0, 0);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) < 0.01f)
