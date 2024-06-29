@@ -8,6 +8,7 @@ TagManager:
   - PickedupKitten
   - RoomBounds
   - Kitten
+  - StaticKitten
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,6 @@ TagManager:
   - Door
   - Floor
   - Kitten
-  - 
   - 
   - 
   - 
