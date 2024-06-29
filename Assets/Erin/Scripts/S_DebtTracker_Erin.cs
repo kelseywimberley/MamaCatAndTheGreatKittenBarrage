@@ -7,7 +7,7 @@ using TMPro;
  * Date: 6/26/2024
  * 
  * Description: Updates the total debt tracker UI. 
- *              TEMPORARY CONDITION: UI updates whenever M is pressed
+ *              TEMPORARY CONDITION: UI updates depending on how many kittens there are
  * 
  * Public Functions: None
  * 
@@ -21,8 +21,13 @@ public class S_DebtTracker_Erin : MonoBehaviour
     [Tooltip("The UI that will display the total debt amount")]
     public GameObject debtTrackerUI;
 
+    private float timer; //determins when the UI is able to be updated
+    private GameObject[] kittens; //determins how many times the UI can be updated
+
     /* If the debtAmount is a positive number, 
-     * change it to a negative number
+     * change it to a negative number.
+     * 
+     * Initialize private variables
      */
     void Start()
     {
@@ -33,6 +38,9 @@ public class S_DebtTracker_Erin : MonoBehaviour
             //debt is negative
             debtAmount *= -1;
         }
+
+        timer = 1.0f + Time.time;
+        kittens = new GameObject[3];
     }
 
     /*
@@ -54,15 +62,24 @@ public class S_DebtTracker_Erin : MonoBehaviour
 
     /*
      * FOR TEMP. PURPOSES
-     * Have the debtcounter update every time M is pressed
+     * Have the debtcounter update depending on how many 
+     * kittens are on the screen
      */
     void Update()
     {
-        //if M is pressed
-        if(Input.GetKeyDown(KeyCode.M))
+        //find out how many kittens are currently in the scene
+        kittens = GameObject.FindGameObjectsWithTag("Kitten");
+        //if it is time for the UI to be updated
+        if (Time.time > timer)
         {
-            //update the debt counter
-            DebtTracker();
+            //go through the list of kittens
+            for(int i = 0; i < kittens.Length; i++)
+            {
+                //update the debt counter
+                DebtTracker();
+            }
+            //increment timer
+            timer = 1.0f + Time.time;
         }
     }
 }
