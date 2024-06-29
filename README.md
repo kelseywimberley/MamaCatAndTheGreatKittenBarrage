@@ -1,4 +1,4 @@
-# BlackCatJamGame
+# Mama Cat and the Great Kitten Barrage - A Game for the Black Cat Game Jam
  
 Using Unity version 2022.3.1
 
