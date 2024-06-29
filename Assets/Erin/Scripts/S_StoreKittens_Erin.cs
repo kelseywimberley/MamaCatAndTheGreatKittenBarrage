@@ -5,8 +5,8 @@ using UnityEngine;
  * 
  * Date: 6/27/2024
  * 
- * Description: When player reaches gameObject with a kitten, 
- *              put kitten in gameObject
+ * Description: When gameObject on Kitten layer collides with this gameObject,
+ *              the Kitten layered gameObject gets put away
  *              TEMPORARY CONDITION: Kitten just gets destroyed
  * 
  * Public Functions: None
@@ -24,15 +24,11 @@ public class S_StoreKittens_Erin : MonoBehaviour
      */
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //if the player collides with this gameObject
-        if(collision.gameObject.tag == "Player")
+        //if a gameobject on the kitten layer collides wiht this gameobject
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Kitten"))
         {
-            //and the player has a kitten
-            if(GameObject.FindGameObjectWithTag("PickedupKitten"))
-            {
-                //destroy kitten to symbolize that kitten is put away
-                Destroy(GameObject.FindGameObjectWithTag("PickedupKitten"));
-            }
+           //destroy kitten to symbolize that kitten is put away
+           Destroy(collision.gameObject);
         }
     }
     void Update() { }

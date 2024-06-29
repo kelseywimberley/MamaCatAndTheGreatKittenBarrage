@@ -6,9 +6,8 @@ using UnityEngine;
  * 
  * Date: 6/27/2024
  * 
- * Description: allows the player to drop the kitten they previously picked up
- *              TEMPORARY CONDITION: to drop the kitten press Enter & the kitten is dropped
- *                                   to the right of the player
+ * Description: allows the player to drop the kitten they previously picked up. Pressing E or right click drops the kitten
+ *              TEMPORARY CONDITION: the kitten is dropped to the right of the player
  * 
  * Public Functions: None
  * 
@@ -34,7 +33,7 @@ public class S_DropKitten : MonoBehaviour
     void Update()
     {
         //if return is pressed
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1))
         {
             //update dropPosition to be the current kitten position
             dropPosition = transform.position;
