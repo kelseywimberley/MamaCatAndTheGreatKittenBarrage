@@ -16,22 +16,22 @@ public class S_Patrol : MonoBehaviour
 {
     [Tooltip("How fast the kitten can move")]
     public float movementSpeed;
-    [Tooltip("Determins where the kitten moves. " +
-             "-1 = moving left 1 space" +
-             "1 = moving right 1 space")]
-    public int[] patrolRoute;
+    [Tooltip("Determins how many spaces in the X direction the kitten moves. " +
+             "negative number = moving left" +
+             "positive number = moving right")]
+    public int movementSpace;
 
-    private int i; //iterates through the patrolRoute array
     private Vector2 newPosition; //the new place the kitten moves to
     private Vector2 fallPosition; //the place the kitten needs to fall to
+    private Vector2 startingPosition; //the place the kitten starts at
    
     /*
      * Initialize private variables
      */
     void Start()
     {
-        i = 0;
-        newPosition = transform.position;
+        newPosition = new Vector2(transform.position.x + movementSpace, transform.position.y);
+        startingPosition = transform.position;
         fallPosition = Vector2.zero;
     }
     
@@ -68,27 +68,8 @@ public class S_Patrol : MonoBehaviour
         //if the kitten has reached their destination
         if (Vector2.Distance(transform.position, newPosition) <= 0.01f)
         {
-            //if the kitten needs to move left next
-            if (patrolRoute[i] == -1)
-            {
-                //subtract newPosition.x by 1
-                newPosition.x -= 1;
-            }
-            //if the kitten needs to move right next
-            else if (patrolRoute[i] == 1)
-            {
-                //add newPosition.x by 1
-                newPosition.x += 1;
-            }
-            //new position has been set, so increment i
-            //to go to the next spot
-            i++;
-            //if i is out of bounds
-            if (i > patrolRoute.Length - 1)
-            {
-                //set i to 0 to restart the patrol route
-                i = 0;
-            }
+            newPosition = startingPosition;
+            startingPosition = transform.position;
         }
         //we only care about left & right for now, so make sure 
         //newPosition.y = kitten's current y 

@@ -6,9 +6,8 @@ using UnityEngine;
  * Date: 6/27/2024
  * 
  * Description: Player picked up the moving kitten gameObject when they are
- *              close to the kitten & a key is pressed
- *              TEMPORARY CONDITION: The key needed to be pressed is Enter
- *                                   and the picked up kitten appears ontop of player
+ *              close to the kitten & E or right click is pressed
+ *              TEMPORARY CONDITION: The picked up kitten appears ontop of player
  * 
  * Public Functions: None
  * 
@@ -67,7 +66,8 @@ public class S_KittenPickup_Erin : MonoBehaviour
     void Update()
     {
         //if the kitten can be picked up & the return key is pressed
-        if(collidedFlag == true && Input.GetKeyDown(KeyCode.Return) && !GameObject.FindGameObjectWithTag("PickedupKitten"))
+        if(collidedFlag == true && Input.GetKeyDown(KeyCode.E) && !GameObject.FindGameObjectWithTag("PickedupKitten") ||
+            collidedFlag == true && Input.GetMouseButtonDown(1) && !GameObject.FindGameObjectWithTag("PickedupKitten"))
         {
             //spawn the picked up kitten gameObject at the player's location
             Instantiate(pickedUpKitten,pickedUpPosition, Quaternion.identity);
