@@ -17,12 +17,13 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
 {
     [Tooltip("How much debt the gameObject is worth when it is damaged." +
              "Have the amount be negative")]
-    public int debtAmountStaticKitten = -3;
+    public int debtAmountStaticKitten = 3;
     [Tooltip("How much debt the gameObject is worth when it is damaged." +
              "Have the amount be negative")]
-    public int debtAmountMovingKitten = -1;
+    public int debtAmountMovingKitten = 1;
     [Tooltip("The UI that will display the total debt amount")]
     public GameObject debtTrackerUI;
+    private int debtAmount;
 
     private float timer; //determins when the UI is able to be updated
     private GameObject[] staticKittens; //determins how many times the UI can be updated
@@ -36,19 +37,20 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
     void Start()
     {
         //if the value of debtAmount is positive
-        if (debtAmountStaticKitten > 0)
+        if (debtAmountStaticKitten < 0)
         {
             //change it to a negative number since
             //debt is negative
             debtAmountStaticKitten *= -1;
         }
-        if (debtAmountMovingKitten > 0)
+        if (debtAmountMovingKitten < 0)
         {
             //change it to a negative number since
             //debt is negative
             debtAmountMovingKitten *= -1;
         }
 
+        debtAmount = 0;
         timer = 1.0f + Time.time;
         staticKittens = new GameObject[3];
         movingKittens = new GameObject[3];
@@ -59,16 +61,10 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
      */
     void DebtTrackerStaticKitten()
     {
-        //have an int variable that will store the value of debtTrackerUI
-        int debt;
-        //if it is possible to parse the integer value from the UI
-        if (int.TryParse(debtTrackerUI.GetComponent<TextMeshProUGUI>().text, out debt) == true)
-        {
-            //increment the current total debt amount by debtAmount
-            debt += debtAmountStaticKitten;
-            //Have debtTrackerUI now display the new total debt amount
-            debtTrackerUI.GetComponent<TextMeshProUGUI>().SetText(debt.ToString());
-        }
+        //increment the current total debt amount by debtAmount
+        debtAmount += debtAmountStaticKitten;
+        //Have debtTrackerUI now display the new total debt amount
+        debtTrackerUI.GetComponent<TextMeshProUGUI>().SetText("-$" + debtAmount.ToString());
     }
 
     /*
@@ -76,16 +72,10 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
      */
     void DebtTrackerMovingKitten()
     {
-        //have an int variable that will store the value of debtTrackerUI
-        int debt;
-        //if it is possible to parse the integer value from the UI
-        if (int.TryParse(debtTrackerUI.GetComponent<TextMeshProUGUI>().text, out debt) == true)
-        {
-            //increment the current total debt amount by debtAmount
-            debt += debtAmountMovingKitten;
-            //Have debtTrackerUI now display the new total debt amount
-            debtTrackerUI.GetComponent<TextMeshProUGUI>().SetText(debt.ToString());
-        }
+        //increment the current total debt amount by debtAmount
+        debtAmount += debtAmountMovingKitten;
+        //Have debtTrackerUI now display the new total debt amount
+        debtTrackerUI.GetComponent<TextMeshProUGUI>().SetText("-$" + debtAmount.ToString());
     }
 
     /*
