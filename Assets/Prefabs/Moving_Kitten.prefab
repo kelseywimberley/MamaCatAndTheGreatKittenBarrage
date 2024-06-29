@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickedUpKitten: {fileID: 8319803980970202589, guid: 695b44d56b7edff48a105fa5412f7197, type: 3}
-  pickedUpPosition: {fileID: 0}
 --- !u!61 &5958375241480595176
 BoxCollider2D:
   m_ObjectHideFlags: 0
