@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuHoverSound: {fileID: 8300000, guid: 444d2fe1244745442a9662fcaef8d8e6, type: 3}
-  menuClickSound: {fileID: 0}
+  menuClickSound: {fileID: 8300000, guid: 5b6a8b87851a2a14db153cd0374b7194, type: 3}
 --- !u!1 &704386390
 GameObject:
   m_ObjectHideFlags: 0
