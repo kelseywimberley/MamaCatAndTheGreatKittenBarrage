@@ -116,8 +116,16 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
                 DebtTrackerMovingKitten();
             }
 
-            NickUITextONe.GetComponent<TextMeshProUGUI>().SetText("-$" + currentLost);
-            NickUITextTWo.GetComponent<TextMeshProUGUI>().SetText("-$" + currentLost);
+            if (currentLost > 0)
+            {
+                NickUITextONe.GetComponent<TextMeshProUGUI>().SetText("-$" + currentLost);
+                NickUITextTWo.GetComponent<TextMeshProUGUI>().SetText("-$" + currentLost);
+            }
+            else
+            {
+                NickUITextONe.GetComponent<TextMeshProUGUI>().SetText("");
+                NickUITextTWo.GetComponent<TextMeshProUGUI>().SetText("");
+            }
           
             //increment timer
             timer = 1.0f + Time.time;

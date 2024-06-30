@@ -19,10 +19,17 @@ public class S_StoreKittens_Kelsey : MonoBehaviour
     private int kittenCount;
     private GameObject kittenCountText;
 
+    [Tooltip("The particles to spawn when a kitten is put into the basket")]
+    public ParticleSystem depositParticles;
+    [Tooltip("The particles to spawn when all the kittens are put into the basket")]
+    public ParticleSystem celebrationParticles;
+    bool spawnParticles;
+
     void Start()
     {
         kittenCount = 0;
         kittenCountText = GameObject.Find("KittenCounter");
+        spawnParticles = true;
     }
 
     /*
@@ -39,7 +46,19 @@ public class S_StoreKittens_Kelsey : MonoBehaviour
             Destroy(collision.gameObject);
             kittenCount++;
             kittenCountText.GetComponent<TextMeshProUGUI>().SetText(kittenCount + "/3");
+            //spawn particles
+            Instantiate(depositParticles, transform.position, Quaternion.identity);
         }
     }
-    void Update() { }
+    void Update()
+    {
+        if (kittenCount >= 3 && spawnParticles)
+        {
+            spawnParticles = false;
+            float x = Random.Range(transform.position.x - 2, transform.position.x + 2);
+            float y = Random.Range(transform.position.y - 2, transform.position.y + 2);
+            //spawn particles
+            Instantiate(celebrationParticles, new Vector2(x, y), Quaternion.identity);
+        }
+    }
 }
