@@ -837,8 +837,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562.5, y: 0}
-  m_SizeDelta: {x: 1125, y: 0}
+  m_AnchoredPosition: {x: 577.2632, y: 0}
+  m_SizeDelta: {x: 1154.5264, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432294405
 MonoBehaviour:
@@ -1398,8 +1398,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562.5, y: 0}
-  m_SizeDelta: {x: 1125, y: 0}
+  m_AnchoredPosition: {x: 577.2632, y: 0}
+  m_SizeDelta: {x: 1154.5264, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &586821623
 MonoBehaviour:
@@ -1746,8 +1746,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562.5, y: 0}
-  m_SizeDelta: {x: 1125, y: 0}
+  m_AnchoredPosition: {x: 577.2632, y: 0}
+  m_SizeDelta: {x: 1154.5264, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &756762378
 MonoBehaviour:
@@ -2353,8 +2353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562.5, y: 0}
-  m_SizeDelta: {x: 1125, y: 0}
+  m_AnchoredPosition: {x: 577.2632, y: 0}
+  m_SizeDelta: {x: 1154.5264, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &972232624
 MonoBehaviour:
@@ -3463,7 +3463,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 180402155}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.60473377
+  m_Size: 0.5896214
   m_NumberOfSteps: 10
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3851,7 +3851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[Game Title]'
+  m_text: Mama Cat and the Great Kitten Barrage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4479,8 +4479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 562.5, y: 0}
-  m_SizeDelta: {x: 1125, y: 0}
+  m_AnchoredPosition: {x: 577.2632, y: 0}
+  m_SizeDelta: {x: 1154.5264, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827043084
 MonoBehaviour:
