@@ -7,7 +7,7 @@ using UnityEngine;
  * Date: 6/27/2024
  * 
  * Description: allows the player to drop the kitten they previously picked up. Pressing E or right click drops the kitten
- *              TEMPORARY CONDITION: the kitten is dropped to the right of the player
+ *              The kitten is dropped below the player
  * 
  * Public Functions: None
  * 
@@ -38,7 +38,6 @@ public class S_DropKitten : MonoBehaviour
             //update dropPosition to be the current kitten position
             dropPosition = transform.position;
             //set the offset so the kitten is dropped to the right of the player
-            dropPosition.x += 1;
             dropPosition.y -= 1;
             //spawn the kitten that can move
             Instantiate(movingCounterpart, dropPosition, Quaternion.identity);
