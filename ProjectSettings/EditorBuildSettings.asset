@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Kelsey/Scenes/Level_Kelsey.unity
     guid: 3aa3ad8186dc19e4a872edf16f77e6ff
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 289ae96763a1d409f8e7e3c9e5c2f892
   m_configObjects: {}
