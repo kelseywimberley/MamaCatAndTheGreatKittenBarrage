@@ -42,9 +42,11 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
     private Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sRenderer;
+    BoxCollider2D boxCollider;
 
     private Vector3 tempTransform;
     private Vector2 jumpDirection;
+    private Vector2 lastVelocity;
 
     private float holdTime = 0;
     bool grounded;
@@ -66,6 +68,7 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         sRenderer = gameObject.GetComponent<SpriteRenderer>();
         audioSource = gameObject.GetComponent<AudioSource>();
+        boxCollider = gameObject.GetComponent<BoxCollider2D>();
         confiner = GameObject.Find("Virtual Camera").GetComponent<CinemachineConfiner2D>();
         roomColliderParent = GameObject.Find("RoomBounds").transform;
         stairSpawnParent = GameObject.Find("StairSpawns").transform;
@@ -97,10 +100,10 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         if (grounded)
         {
             // stop airtime audio on land
-            if (justLanded)
+            if (justLanded && lastVelocity.y < -0.1f)
             {
                 audioSource.Stop();
-                S_SoundManager.instance.PlayClip(landSound, transform, 0.5f);
+                S_SoundManager.instance.PlayClip(landSound, transform, Mathf.Clamp(Mathf.Pow(-lastVelocity.y / 20f, 2), 0.15f, 1f));
 
                 // landing operations are done, reset justLanded
                 justLanded = false;
@@ -131,6 +134,8 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         GoThroughPlatform();
 
         setFlip();
+
+        lastVelocity = rb.velocity;
     }
 
     void CheckGrounded()
