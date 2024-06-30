@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8834502121906145702}
   - component: {fileID: -1307248119489026087}
+  - component: {fileID: -8569233366009667952}
   m_Layer: 0
   m_Name: DebtCounterUpdater
   m_TagString: Untagged
@@ -46,3 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debtAmount: 1
   debtTrackerUI: {fileID: 0}
+--- !u!114 &-8569233366009667952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2570784057437704706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9188c294c0ed0d4f998a09f55038831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseScreen: {fileID: 0}
