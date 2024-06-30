@@ -116,10 +116,12 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                 StartJump();
             }
             else if (Input.GetMouseButtonUp(0))
             {
+                transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
                 ReleaseJump();
             }
             else if (Input.GetKeyDown(KeyCode.Space) && grounded)
