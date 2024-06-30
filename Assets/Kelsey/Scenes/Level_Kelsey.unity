@@ -3046,6 +3046,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpLine: {fileID: 1772403168}
+  jumpClip: {fileID: 8300000, guid: 10a30e6da2910b84e85a8b51d0591811, type: 3}
 --- !u!1 &1097362276
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,7 +3439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225933806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.490736, y: -0.18378997, z: -10}
+  m_LocalPosition: {x: -1.872714, y: -0.18892002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

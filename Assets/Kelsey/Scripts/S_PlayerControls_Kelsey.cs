@@ -31,6 +31,12 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
     public LineRenderer jumpLine;
 
+
+
+    [SerializeField] private AudioClip jumpSound;
+
+    
+    
     private Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sRenderer;
@@ -98,6 +104,8 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
             {
                 rb.velocity += new Vector2(0, smallJumpPower);
                 animator.SetTrigger("StartJump");
+
+                S_SoundManager.instance.PlayClipWithFade(jumpSound, transform, 1f, jumpSound.length * 0.2f);
             }
 
             if (charging)
@@ -151,6 +159,8 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         {
             percentage = 1;
             animator.SetTrigger("StartJump");
+
+            S_SoundManager.instance.PlayClip(jumpSound, transform, 1f);
         }
         else if (holdTime <= minJumpHoldTime)
         {
@@ -161,6 +171,8 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         {
             percentage = (holdTime - minJumpHoldTime) / (maxJumpHoldTime - minJumpHoldTime);
             animator.SetTrigger("StartJump");
+
+            S_SoundManager.instance.PlayClipWithFade(jumpSound, transform, 1f, jumpSound.length * Mathf.Pow(percentage, 2));
         }
 
         float holdMultiplier = jumpCurve.Evaluate(percentage);
