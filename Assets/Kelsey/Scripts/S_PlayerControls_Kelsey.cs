@@ -31,8 +31,6 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
     public LineRenderer jumpLine;
 
-
-
     private AudioSource airtimeSource;
     private AudioSource walkingSource;
     [SerializeField] private AudioClip jumpSound;
@@ -74,6 +72,8 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         confiner = GameObject.Find("Virtual Camera").GetComponent<CinemachineConfiner2D>();
         roomColliderParent = GameObject.Find("RoomBounds").transform;
         stairSpawnParent = GameObject.Find("StairSpawns").transform;
+
+       
     }
 
     void Update()
@@ -116,9 +116,12 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 StartJump();
+                gameObject.GetComponentInChildren<ParticleSystem>().Play();
+
             }
             else if (Input.GetMouseButtonUp(0))
             {
+                gameObject.GetComponentInChildren<ParticleSystem>().Stop();
                 ReleaseJump();
             }
             else if (Input.GetKeyDown(KeyCode.Space) && grounded)
