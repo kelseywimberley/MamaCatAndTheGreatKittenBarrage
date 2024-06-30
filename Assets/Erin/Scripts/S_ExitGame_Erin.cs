@@ -2,16 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-/* Author: Erin Scribner
- * 
- * Date: 6/30/2024
- * 
- * Description: Exits out of the game when the button is clicked
- * 
- * Public Functions: None
- * 
- * Other Scripts Needed: None
- */
+using UnityEngine.SceneManagement;
+
 public class S_ExitGame_Erin : MonoBehaviour
 {
     /*
@@ -27,7 +19,8 @@ public class S_ExitGame_Erin : MonoBehaviour
      */
     void ExitGame()
     {
-        Application.Quit();
+        //goes to the main menu
+        SceneManager.LoadScene("MainMenu");
     }
 
     void Update() { }
