@@ -6,21 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class S_ExitGame_Erin : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /*
+     * Adds the exit game function to the button's onClick listener
+     */
     void Start()
     {
         gameObject.GetComponent<Button>().onClick.AddListener(ExitGame);
     }
 
+    /*
+     * Exit out of the game
+     */
     void ExitGame()
     {
         //goes to the main menu
         SceneManager.LoadScene("MainMenu");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update() { }
 }
