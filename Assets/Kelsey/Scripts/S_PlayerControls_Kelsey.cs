@@ -33,7 +33,8 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
 
 
-    private AudioSource audioSource;
+    private AudioSource airtimeSource;
+    private AudioSource walkingSource;
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip landSound;
 
@@ -67,7 +68,8 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         sRenderer = gameObject.GetComponent<SpriteRenderer>();
-        audioSource = gameObject.GetComponent<AudioSource>();
+        airtimeSource = gameObject.GetComponents<AudioSource>()[0];
+        walkingSource = gameObject.GetComponents<AudioSource>()[1];
         boxCollider = gameObject.GetComponent<BoxCollider2D>();
         confiner = GameObject.Find("Virtual Camera").GetComponent<CinemachineConfiner2D>();
         roomColliderParent = GameObject.Find("RoomBounds").transform;
@@ -86,11 +88,13 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         else
         {
             animator.SetBool("Walking", false);
+            walkingSource.Pause();
         }
 
         if (Mathf.Abs(rb.velocity.x) < 0.01f || !grounded)
         {
             animator.SetBool("Walking", false);
+            walkingSource.Pause();
         }
 
 
@@ -102,7 +106,7 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
             // stop airtime audio on land
             if (justLanded && lastVelocity.y < -0.1f)
             {
-                audioSource.Stop();
+                airtimeSource.Stop();
                 S_SoundManager.instance.PlayClip(landSound, transform, Mathf.Clamp(Mathf.Pow(-lastVelocity.y / 20f, 2), 0.15f, 1f));
 
                 // landing operations are done, reset justLanded
@@ -209,7 +213,7 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
         if (rb.velocity.magnitude > 25f)
         {
-            audioSource.Play();
+            airtimeSource.Play();
         }
     }
 
@@ -243,6 +247,7 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         {
             rb.velocity += new Vector2(-moveSpeed * (1.0f / timeToMaxSpeed) * Time.deltaTime, 0);
             animator.SetBool("Walking", true);
+            if (!walkingSource.isPlaying) walkingSource.Play();
             holdingLeft = true;
         }
 
@@ -250,6 +255,7 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         {
             rb.velocity += new Vector2(moveSpeed * (1.0f / timeToMaxSpeed) * Time.deltaTime, 0);
             animator.SetBool("Walking", true);
+            if (!walkingSource.isPlaying) walkingSource.Play();
             holdingLeft = false;
         }
     }
