@@ -43,7 +43,11 @@ public class S_SoundManager : MonoBehaviour
         audioSource.Play();
 
         float duration = audioSource.clip.length;
-        Destroy(audioSource.gameObject, duration);
+
+        if(audioSource.gameObject)
+        {
+            Destroy(audioSource.gameObject, duration);
+        }
         return audioSource;
     }
 
