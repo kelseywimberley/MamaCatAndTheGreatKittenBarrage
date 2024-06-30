@@ -64,6 +64,7 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1.0f;
         tempTransform = transform.position;
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
