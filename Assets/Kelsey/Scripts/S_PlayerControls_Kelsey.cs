@@ -33,10 +33,12 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
 
 
+    private AudioSource audioSource;
     [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landSound;
 
-    
-    
+
+
     private Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sRenderer;
@@ -46,6 +48,7 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
     private float holdTime = 0;
     bool grounded;
+    bool justLanded = false;
     bool charging = false;
 
     bool holdingLeft = false;
@@ -62,6 +65,7 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         sRenderer = gameObject.GetComponent<SpriteRenderer>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         confiner = GameObject.Find("Virtual Camera").GetComponent<CinemachineConfiner2D>();
         roomColliderParent = GameObject.Find("RoomBounds").transform;
         stairSpawnParent = GameObject.Find("StairSpawns").transform;
@@ -92,6 +96,16 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
         if (grounded)
         {
+            // stop airtime audio on land
+            if (justLanded)
+            {
+                audioSource.Stop();
+                S_SoundManager.instance.PlayClip(landSound, transform, 0.5f);
+
+                // landing operations are done, reset justLanded
+                justLanded = false;
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 StartJump();
@@ -114,7 +128,6 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
             }
         }
 
-
         GoThroughPlatform();
 
         setFlip();
@@ -122,7 +135,9 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
     void CheckGrounded()
     {
+        bool lastGrounded = grounded; // grounded value from last frame
         grounded = Mathf.Abs(rb.velocity.y) < 0.01f;
+        if (grounded && grounded != lastGrounded) justLanded = true;
         animator.SetBool("Grounded", grounded);
     }
 
@@ -186,6 +201,11 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
 
         // temp visialization
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+
+        if (rb.velocity.magnitude > 25f)
+        {
+            audioSource.Play();
+        }
     }
 
     void UpdateJump()
@@ -336,12 +356,12 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
                 roomNum = 1;
                 confiner.m_BoundingShape2D = roomColliderParent.GetChild(roomNum).GetComponent<PolygonCollider2D>();
             }
-        }
 
-        if (collision.name == "Stairs0" || collision.name == "Stairs1" ||
-            collision.name == "Stairs2" || collision.name == "Stairs3")
-        {
-            stairNum = -1;
+            if (collision.name == "Stairs0" || collision.name == "Stairs1" ||
+                collision.name == "Stairs2" || collision.name == "Stairs3")
+            {
+                stairNum = -1;
+            }
         }
     }
 }
