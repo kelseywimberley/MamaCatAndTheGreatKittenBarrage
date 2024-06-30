@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class S_MainMenu : MonoBehaviour{
+public class S_LevelSelector : MonoBehaviour{
     public enum Scene
     {
-        Level = 0,
-        MainMenu = 1,
+        MainMenu = 0,
+        Level = 1,
         Credits = 2,
     }
 
