@@ -15,7 +15,21 @@ using UnityEngine;
  */
 public class S_StoreKittens_Erin : MonoBehaviour
 {
-    void Start() { }
+    [Tooltip("The particles to spawn when a kitten is put into the basket")]
+    public ParticleSystem depositParticles;
+    [Tooltip("The particles to spawn when all the kittens are put into the basket")]
+    public ParticleSystem celebrationParticles;
+
+    private int numOfKittens; //keeps track of how many kittens are put into the basket
+
+    /*
+     * Initialize pirvate variables
+     */
+    void Start()
+    {
+        numOfKittens = 0;
+    
+    }
 
     /*
      * When player collides with gameObject
@@ -27,9 +41,22 @@ public class S_StoreKittens_Erin : MonoBehaviour
         //if a gameobject on the kitten layer collides wiht this gameobject
         if(collision.gameObject.layer == LayerMask.NameToLayer("Kitten"))
         {
+            numOfKittens++;
+            //spawn particles
+            Instantiate(depositParticles, transform.position, Quaternion.identity);
            //destroy kitten to symbolize that kitten is put away
            Destroy(collision.gameObject);
         }
     }
-    void Update() { }
+
+    void Update() 
+    { 
+        if(numOfKittens >= 3)
+        {
+            float x = Random.Range(transform.position.x-2, transform.position.x+2);
+            float y = Random.Range(transform.position.y - 2, transform.position.y + 2);
+            //spawn particles
+            Instantiate(celebrationParticles, new Vector2(x,y), Quaternion.identity);
+        } 
+    }
 }
