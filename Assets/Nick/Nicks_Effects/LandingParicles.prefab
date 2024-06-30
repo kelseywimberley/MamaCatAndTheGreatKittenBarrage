@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6536013800963978593}
   - component: {fileID: 3079456693079268225}
   - component: {fileID: 780718256541974040}
+  - component: {fileID: 6217033016802845193}
   m_Layer: 0
   m_Name: LandingParicles
   m_TagString: Untagged
@@ -4904,3 +4905,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6217033016802845193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727087284330926508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24b329c9e82d1d4f8c76fab19c72439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
