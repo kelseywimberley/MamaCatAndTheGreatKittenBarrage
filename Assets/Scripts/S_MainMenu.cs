@@ -11,4 +11,13 @@ public class S_MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
     }
 
+    public void ShowCredits()
+    {
+        SceneManager.LoadSceneAsync(2);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
