@@ -34,6 +34,11 @@ public class S_LevelSelector : MonoBehaviour{
         Application.Quit();
     }
 
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     IEnumerator LoadScene(Scene scene, float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
