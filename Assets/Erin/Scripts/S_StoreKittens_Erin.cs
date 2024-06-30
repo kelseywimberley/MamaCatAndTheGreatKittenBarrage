@@ -21,6 +21,7 @@ public class S_StoreKittens_Erin : MonoBehaviour
     public ParticleSystem celebrationParticles;
 
     private int numOfKittens; //keeps track of how many kittens are put into the basket
+    bool spawnParticles;
 
     /*
      * Initialize pirvate variables
@@ -28,7 +29,7 @@ public class S_StoreKittens_Erin : MonoBehaviour
     void Start()
     {
         numOfKittens = 0;
-    
+        spawnParticles = true;
     }
 
     /*
@@ -51,8 +52,9 @@ public class S_StoreKittens_Erin : MonoBehaviour
 
     void Update() 
     { 
-        if(numOfKittens >= 3)
+        if(numOfKittens >= 3 && spawnParticles)
         {
+            spawnParticles = false;
             float x = Random.Range(transform.position.x-2, transform.position.x+2);
             float y = Random.Range(transform.position.y - 2, transform.position.y + 2);
             //spawn particles
