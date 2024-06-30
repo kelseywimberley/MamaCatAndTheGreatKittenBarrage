@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/* Author: Erin Scribner
+ * 
+ * Date: 6/30/2024
+ * 
+ * Description: Pauses the game
+ * 
+ * Public Functions: None
+ * 
+ * Other Scripts Needed: None
+ */
 public class S_PauseGame_Erin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
-    // Update is called once per frame
+   /*
+    * Sets timescale to 0 so game is paused
+    */
     void Update()
     {
         Time.timeScale = 0;

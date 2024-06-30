@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentName: Player
-  positionOffset: {x: 0, y: 1}
+  positionOffset: {x: 0.5, y: 0}
 --- !u!114 &-8911327416880768633
 MonoBehaviour:
   m_ObjectHideFlags: 0
