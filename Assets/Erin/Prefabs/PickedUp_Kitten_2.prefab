@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9129509639415113652}
   - component: {fileID: -8911327416880768633}
   m_Layer: 0
-  m_Name: PickedUp_Kitten
+  m_Name: PickedUp_Kitten_2
   m_TagString: PickedupKitten
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
