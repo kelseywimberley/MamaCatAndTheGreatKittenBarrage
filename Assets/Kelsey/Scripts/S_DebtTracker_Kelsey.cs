@@ -15,19 +15,23 @@ using TMPro;
  */
 public class S_DebtTracker_Kelsey : MonoBehaviour
 {
-    [Tooltip("How much debt the gameObject is worth when it is damaged." +
-             "Have the amount be negative")]
+    [Tooltip("How much debt the static kitten is worth")]
     public int debtAmountStaticKitten = 3;
-    [Tooltip("How much debt the gameObject is worth when it is damaged." +
-             "Have the amount be negative")]
+    [Tooltip("How much debt the moving kitten is worth")]
     public int debtAmountMovingKitten = 1;
     [Tooltip("The UI that will display the total debt amount")]
     public GameObject debtTrackerUI;
+
+    public GameObject NickUITextONe;
+    public GameObject NickUITextTWo;
+
     private int debtAmount;
 
     private float timer; //determins when the UI is able to be updated
     private GameObject[] staticKittens; //determins how many times the UI can be updated
     private GameObject[] movingKittens; //determins how many times the UI can be updated
+
+    private int currentLost;
 
     /* If the debtAmount is a positive number, 
      * change it to a negative number.
@@ -36,7 +40,7 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
      */
     void Start()
     {
-        //if the value of debtAmount is positive
+        //if the value of debtAmount is negative
         if (debtAmountStaticKitten < 0)
         {
             //change it to a negative number since
@@ -45,8 +49,7 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
         }
         if (debtAmountMovingKitten < 0)
         {
-            //change it to a negative number since
-            //debt is negative
+            //change it to a positive number since negative sign will be added later
             debtAmountMovingKitten *= -1;
         }
 
@@ -54,6 +57,8 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
         timer = 1.0f + Time.time;
         staticKittens = new GameObject[3];
         movingKittens = new GameObject[3];
+
+        currentLost = 0;
     }
 
     /*
@@ -61,8 +66,7 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
      */
     void DebtTrackerStaticKitten()
     {
-        //increment the current total debt amount by debtAmount
-        debtAmount += debtAmountStaticKitten;
+        
         //Have debtTrackerUI now display the new total debt amount
         debtTrackerUI.GetComponent<TextMeshProUGUI>().SetText("-$" + debtAmount.ToString());
     }
@@ -72,8 +76,7 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
      */
     void DebtTrackerMovingKitten()
     {
-        //increment the current total debt amount by debtAmount
-        debtAmount += debtAmountMovingKitten;
+       
         //Have debtTrackerUI now display the new total debt amount
         debtTrackerUI.GetComponent<TextMeshProUGUI>().SetText("-$" + debtAmount.ToString());
     }
@@ -92,18 +95,30 @@ public class S_DebtTracker_Kelsey : MonoBehaviour
         //if it is time for the UI to be updated
         if (Time.time > timer)
         {
+            debtAmount += currentLost;
+            currentLost = 0;
             //go through the list of kittens
             for (int i = 0; i < staticKittens.Length; i++)
             {
+                currentLost += debtAmountStaticKitten;
+              
                 //update the debt counter
                 DebtTrackerStaticKitten();
             }
 
             for (int i = 0; i < movingKittens.Length; i++)
             {
+                //increment the current total debt amount by debtAmount
+               // debtAmount += debtAmountMovingKitten;
+
+                currentLost += debtAmountMovingKitten;
                 //update the debt counter
                 DebtTrackerMovingKitten();
             }
+
+            NickUITextONe.GetComponent<TextMeshProUGUI>().SetText("-$" + currentLost);
+            NickUITextTWo.GetComponent<TextMeshProUGUI>().SetText("-$" + currentLost);
+          
             //increment timer
             timer = 1.0f + Time.time;
         }
