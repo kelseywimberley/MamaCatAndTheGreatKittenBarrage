@@ -37,8 +37,6 @@ public class S_DropKitten : MonoBehaviour
         {
             //update dropPosition to be the current kitten position
             dropPosition = transform.position;
-            //set the offset so the kitten is dropped to the right of the player
-            dropPosition.y -= 1;
             //spawn the kitten that can move
             Instantiate(movingCounterpart, dropPosition, Quaternion.identity);
             //destroy the kitten that is on top of the player
