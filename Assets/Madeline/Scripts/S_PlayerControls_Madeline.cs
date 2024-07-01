@@ -23,7 +23,7 @@ public class S_PlayerControls_Madeline : MonoBehaviour
     [Range(0.0f, 2.0f)]
     public float maxJumpHoldTime = 1;
 
-    [Range(0.0f, 2.0f)]
+    [Range(0.0f, 15.0f)]
     public float minLandVelocity = 0.1f;
 
 
