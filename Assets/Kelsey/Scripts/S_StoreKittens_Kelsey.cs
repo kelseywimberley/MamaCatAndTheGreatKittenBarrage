@@ -25,6 +25,14 @@ public class S_StoreKittens_Kelsey : MonoBehaviour
     public ParticleSystem celebrationParticles;
     bool spawnParticles;
 
+
+
+    public GameObject cat1;
+    public GameObject cat2;
+    public GameObject cat3;
+
+    private Color[] previousColor;
+
     void Start()
     {
         kittenCount = 0;
@@ -42,6 +50,19 @@ public class S_StoreKittens_Kelsey : MonoBehaviour
         //if a gameobject on the kitten layer collides wiht this gameobject
         if (collision.gameObject.layer == LayerMask.NameToLayer("Kitten"))
         {
+            if(collision.gameObject.name == "Moving_Kitten_3(Clone)")
+            {
+                cat3.SetActive(true);
+            }
+            else if(collision.gameObject.name == "Moving_Kitten_2(Clone)")
+            {
+                cat2.SetActive(true);
+            }
+            else if(collision.gameObject.name == "Moving_Kitten_1(Clone)")
+            {
+                cat1.SetActive(true);
+            }
+
             //destroy kitten to symbolize that kitten is put away
             Destroy(collision.gameObject);
             kittenCount++;
