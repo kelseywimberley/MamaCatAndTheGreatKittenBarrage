@@ -29,7 +29,7 @@ public class S_ContinueGame_Erin : MonoBehaviour
     void Continue()
     {
         Time.timeScale = 1.0f;
-        gameObject.transform.parent.gameObject.SetActive(false);
+        gameObject.transform.parent.gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
     }
 
     void Update() { }

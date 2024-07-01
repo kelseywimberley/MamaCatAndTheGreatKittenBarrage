@@ -15,7 +15,9 @@ public class S_OpenPause_Erin : MonoBehaviour
 {
     [Tooltip("The pause screen to open")]
     public GameObject pauseScreen;
-   
+
+    bool isPaused = false;
+
     void Start() { }
 
    /*
@@ -25,7 +27,17 @@ public class S_OpenPause_Erin : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseScreen.SetActive(true);
+            isPaused = !isPaused;
+
+            if (isPaused)
+            {
+                pauseScreen.SetActive(isPaused);
+            }
+            else
+            {
+                pauseScreen.SetActive(isPaused);
+                Time.timeScale = 1;
+            }
         }
     }
 }
