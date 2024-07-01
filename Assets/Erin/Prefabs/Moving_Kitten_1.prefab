@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1519517272250043566}
   - component: {fileID: -3882380732877469494}
   m_Layer: 10
-  m_Name: Moving_Kitten
+  m_Name: Moving_Kitten_1
   m_TagString: Kitten
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
