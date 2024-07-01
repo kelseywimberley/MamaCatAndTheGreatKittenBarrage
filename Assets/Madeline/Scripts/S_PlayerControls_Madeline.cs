@@ -85,6 +85,7 @@ public class S_PlayerControls_Madeline : MonoBehaviour
         confiner = GameObject.Find("Virtual Camera").GetComponent<CinemachineConfiner2D>();
         roomColliderParent = GameObject.Find("RoomBounds").transform;
         stairSpawnParent = GameObject.Find("StairSpawns").transform;
+        stairNum = -1;
     }
 
     void Update()
@@ -404,12 +405,12 @@ public class S_PlayerControls_Madeline : MonoBehaviour
                 roomNum = 1;
                 confiner.m_BoundingShape2D = roomColliderParent.GetChild(roomNum).GetComponent<PolygonCollider2D>();
             }
+        }
 
-            if (collision.name == "Stairs0" || collision.name == "Stairs1" ||
+        if (collision.name == "Stairs0" || collision.name == "Stairs1" ||
                 collision.name == "Stairs2" || collision.name == "Stairs3")
-            {
-                stairNum = -1;
-            }
+        {
+            stairNum = -1;
         }
     }
 }
