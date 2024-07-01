@@ -35,7 +35,6 @@ public class S_WinConditionKelsey : MonoBehaviour
             if (staticKittens.Length == 0 && movingKittens.Length == 0 && heldKittens.Length == 0)
             {
                 gameOver = true;
-                Time.timeScale = 0.0f;
 
                 winText.SetActive(true);
                 playAgainButton.SetActive(true);
