@@ -345,11 +345,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3185481636974948923, guid: fa8de52b1308eba4fb903c2d02f41c72, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3185481636974948923, guid: fa8de52b1308eba4fb903c2d02f41c72, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481636974948923, guid: fa8de52b1308eba4fb903c2d02f41c72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481636974948923, guid: fa8de52b1308eba4fb903c2d02f41c72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4323552001757813961, guid: fa8de52b1308eba4fb903c2d02f41c72, type: 3}
       propertyPath: m_Name
@@ -1794,7 +1802,7 @@ GameObject:
   - component: {fileID: 232047059}
   - component: {fileID: 232047058}
   - component: {fileID: 232047057}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: officeDesk
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -13154,7 +13162,7 @@ GameObject:
   - component: {fileID: 1638627516}
   - component: {fileID: 1638627515}
   - component: {fileID: 1638627514}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: livingroomEndTable
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -13193,7 +13201,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.9716246}
+  m_Offset: {x: 0, y: 1.0150559}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -13204,7 +13212,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.95, y: 0.16675043}
+  m_Size: {x: 1.95, y: 0.07988787}
   m_EdgeRadius: 0
 --- !u!212 &1638627515
 SpriteRenderer:
@@ -17168,7 +17176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1939027575989862901, guid: b82dc3f31b7791341b4eff00a274dbe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.557
+      value: -26.77
       objectReference: {fileID: 0}
     - target: {fileID: 1939027575989862901, guid: b82dc3f31b7791341b4eff00a274dbe3, type: 3}
       propertyPath: m_LocalPosition.y
