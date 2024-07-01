@@ -23,6 +23,8 @@ public class S_PlayerControls_Madeline : MonoBehaviour
     [Range(0.0f, 2.0f)]
     public float maxJumpHoldTime = 1;
 
+    [Range(0.0f, 2.0f)]
+    public float minLandVelocity = 0.1f;
 
 
     public AnimationCurve jumpCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(1, 1));
@@ -39,6 +41,10 @@ public class S_PlayerControls_Madeline : MonoBehaviour
     [SerializeField] private AudioClip landSound;
 
 
+    public GameObject chargingParticles;
+    public GameObject landingParticles;
+
+    public GameObject jumpTrailParticles;
 
     private Rigidbody2D rb;
     Animator animator;
@@ -64,6 +70,9 @@ public class S_PlayerControls_Madeline : MonoBehaviour
     private Transform roomColliderParent;
     private Transform stairSpawnParent;
 
+
+    float previousYVelocity = 0;
+
     void Start()
     {
         tempTransform = transform.position;
@@ -80,6 +89,7 @@ public class S_PlayerControls_Madeline : MonoBehaviour
 
     void Update()
     {
+        previousYVelocity = rb.velocity.y;
         StairInteractions();
         CheckGrounded();
 
@@ -151,10 +161,12 @@ public class S_PlayerControls_Madeline : MonoBehaviour
     {
         //if the gameObject collided with another gameObject
         //labeled "Floor"
-        if(collision.gameObject.tag == "Floor")
+        if(collision.gameObject.tag == "Floor" && grounded == false)
         {
-            //gameObject is grounded, so set onGround to true
             grounded = true;
+            if(previousYVelocity < -minLandVelocity){
+                Instantiate(landingParticles, transform.position- new Vector3(0,0.5f,0), Quaternion.Euler(-90,0,0));
+            }    
         }
     }
 
@@ -176,9 +188,6 @@ public class S_PlayerControls_Madeline : MonoBehaviour
 
     void CheckGrounded()
     {
-       // bool lastGrounded = grounded; // grounded value from last frame
-       // grounded = Mathf.Abs(rb.velocity.y) < 0.01f;
-        //if (grounded && grounded != lastGrounded) justLanded = true;
         animator.SetBool("Grounded", grounded);
     }
 
@@ -207,6 +216,7 @@ public class S_PlayerControls_Madeline : MonoBehaviour
         charging = true;
         falling = false;
         animator.SetTrigger("StartCharging");
+        chargingParticles.GetComponent<ParticleSystem>().Play();
     }
 
     void ReleaseJump()
@@ -240,11 +250,18 @@ public class S_PlayerControls_Madeline : MonoBehaviour
 
         jumpLine.gameObject.SetActive(false);
         charging = false;
+        chargingParticles.GetComponent<ParticleSystem>().Stop();
 
         if (rb.velocity.magnitude > 25f)
         {
             airtimeSource.Play();
         }
+
+        if (rb.velocity.magnitude > 10)
+        {
+            Instantiate((Object)jumpTrailParticles, gameObject.transform);
+        }
+        
     }
 
     void UpdateJump()
