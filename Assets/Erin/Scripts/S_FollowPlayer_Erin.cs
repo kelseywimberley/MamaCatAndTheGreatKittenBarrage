@@ -59,7 +59,7 @@ public class S_FollowPlayer_Erin : MonoBehaviour
             else if(parent.GetComponent<Animator>().GetBool("Walking") == false)
             {
                 //have the position be the same
-                transform.position = parent.transform.position;
+                transform.position = new Vector2(parent.transform.position.x, parent.transform.position.y + positionOffset.y);
             }
 
             previousPosition = parent.transform.position;
