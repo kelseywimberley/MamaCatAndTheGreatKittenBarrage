@@ -3447,6 +3447,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -1.6718102
       objectReference: {fileID: 0}
+    - target: {fileID: 6098773258573968257, guid: 3fa57ed582e855b4db5fa5f281af1a50, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9117658455923334767, guid: 3fa57ed582e855b4db5fa5f281af1a50, type: 3}
       propertyPath: m_Name
       value: KittenCorner
