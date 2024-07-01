@@ -105,7 +105,7 @@ public class S_PlayerControls_Kelsey : MonoBehaviour
         if (grounded)
         {
             // stop airtime audio on land
-            if (justLanded && lastVelocity.y < -0.1f)
+            if (justLanded)
             {
                 airtimeSource.Stop();
                 S_SoundManager.instance.PlayClip(landSound, transform, Mathf.Clamp(Mathf.Pow(-lastVelocity.y / 20f, 2), 0.15f, 1f));
