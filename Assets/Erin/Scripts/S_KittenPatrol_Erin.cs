@@ -65,6 +65,16 @@ public class S_Patrol : MonoBehaviour
      */
     void Patrol()
     {
+        // Flip sprite
+        if (newPosition.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(0.5f, 0.5f, 1);
+        }
+
         //if the kitten has reached their destination
         if (Vector2.Distance(transform.position, newPosition) <= 0.01f)
         {

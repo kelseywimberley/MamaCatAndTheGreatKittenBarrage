@@ -7,10 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-    guid: 289ae96763a1d409f8e7e3c9e5c2f892
+    guid: d3dea848388347e4d9c3643e9ca57056
   - enabled: 1
-    path: Assets/Kelsey/Scenes/Level_Kelsey.unity
-    guid: 3aa3ad8186dc19e4a872edf16f77e6ff
+    path: Assets/Scenes/Level.unity
+    guid: 838fdaf76821d0d4b9d996b97a96b23d
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: de8eea381bb654db9a7f4afd1e5d490f

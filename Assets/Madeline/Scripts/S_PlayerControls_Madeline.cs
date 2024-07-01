@@ -56,7 +56,6 @@ public class S_PlayerControls_Madeline : MonoBehaviour
 
     private float holdTime = 0;
     bool grounded = false;
-    bool justLanded = false;
     bool charging = false;
     bool falling = false;
 
@@ -153,7 +152,6 @@ public class S_PlayerControls_Madeline : MonoBehaviour
         if(collision.gameObject.tag == "Floor" && grounded == false)
         {
             grounded = true;
-            justLanded = true;
             if (previousYVelocity < -minLandVelocity){
                 airtimeSource.Stop();
                 S_SoundManager.instance.PlayClip(landSound, transform, 0.5f * Mathf.Clamp(Mathf.Pow(-previousYVelocity / 20f, 2), 0.15f, 1f));
