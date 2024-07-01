@@ -2567,6 +2567,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &318982907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318982908}
+  m_Layer: 0
+  m_Name: TextObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &318982908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318982907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1225933809}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &323979423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8222,7 +8253,8 @@ Transform:
   m_LocalPosition: {x: -8.237888, y: -1.3343499, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 318982908}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16931,6 +16963,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9048338759486130879, guid: 479c9c10422bd524ea85076dc20c7058, type: 3}
+      propertyPath: TextCanvas
+      value: 
+      objectReference: {fileID: 318982907}
+    - target: {fileID: 9048338759486130879, guid: 479c9c10422bd524ea85076dc20c7058, type: 3}
       propertyPath: amountLostUI
       value: 
       objectReference: {fileID: 1560271719}
@@ -16950,6 +16986,10 @@ PrefabInstance:
       propertyPath: amountOfDebtUI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9048338759486130879, guid: 479c9c10422bd524ea85076dc20c7058, type: 3}
+      propertyPath: NickUIText_Prefab
+      value: 
+      objectReference: {fileID: 6598185492317617032, guid: a63036a74e6df0a498e8f163d30241d5, type: 3}
     - target: {fileID: 9048338759486130879, guid: 479c9c10422bd524ea85076dc20c7058, type: 3}
       propertyPath: debtAmountMovingKitten
       value: 1
