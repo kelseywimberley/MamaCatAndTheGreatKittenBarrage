@@ -44,10 +44,15 @@ public class S_SoundManager : MonoBehaviour
 
         float duration = audioSource.clip.length;
 
-        if(audioSource.gameObject)
+        try
         {
             Destroy(audioSource.gameObject, duration);
         }
+        catch
+        {
+            return audioSource;
+        }
+
         return audioSource;
     }
 
