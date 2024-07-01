@@ -684,7 +684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140731647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.23, y: -3.641772, z: -10}
+  m_LocalPosition: {x: -8.23, y: -3.667, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8244,7 +8244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225933806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.237799, y: -1.3343499, z: -10}
+  m_LocalPosition: {x: -8.23873, y: -1.3343399, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9413,6 +9413,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1318005297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1441921215908342982, guid: e2444143ab398b3469e516d77cacb20a, type: 3}
+  m_PrefabInstance: {fileID: 323979423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1324571295
 GameObject:
   m_ObjectHideFlags: 0
@@ -10377,7 +10382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7927647518246381944, guid: c971df00634b93848acd1e7f1d83835f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.641772
+      value: -3.667
       objectReference: {fileID: 0}
     - target: {fileID: 7927647518246381944, guid: c971df00634b93848acd1e7f1d83835f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10415,6 +10420,18 @@ PrefabInstance:
       propertyPath: jumpLine
       value: 
       objectReference: {fileID: 1772403168}
+    - target: {fileID: 9133351761886236168, guid: c971df00634b93848acd1e7f1d83835f, type: 3}
+      propertyPath: landingParticles
+      value: 
+      objectReference: {fileID: 8727087284330926508, guid: 6dff2f87d4589a743a112b844d32bc0b, type: 3}
+    - target: {fileID: 9133351761886236168, guid: c971df00634b93848acd1e7f1d83835f, type: 3}
+      propertyPath: chargingParticles
+      value: 
+      objectReference: {fileID: 1318005297}
+    - target: {fileID: 9133351761886236168, guid: c971df00634b93848acd1e7f1d83835f, type: 3}
+      propertyPath: jumpTrailParticles
+      value: 
+      objectReference: {fileID: 2734327866775236703, guid: cebf10eb18082984f8a205b2d8b5b901, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
