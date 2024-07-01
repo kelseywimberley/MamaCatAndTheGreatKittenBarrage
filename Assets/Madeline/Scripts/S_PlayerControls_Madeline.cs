@@ -53,7 +53,6 @@ public class S_PlayerControls_Madeline : MonoBehaviour
 
     private Vector3 tempTransform;
     private Vector2 jumpDirection;
-    private Vector2 lastVelocity;
 
     private float holdTime = 0;
     bool grounded = false;
@@ -114,16 +113,6 @@ public class S_PlayerControls_Madeline : MonoBehaviour
 
         if (grounded)
         {
-            // stop airtime audio on land
-            if (justLanded && lastVelocity.y < -0.1f)
-            {
-                airtimeSource.Stop();
-                S_SoundManager.instance.PlayClip(landSound, transform, Mathf.Clamp(Mathf.Pow(-lastVelocity.y / 20f, 2), 0.15f, 1f));
-
-                // landing operations are done, reset justLanded
-                justLanded = false;
-            }
-
             if (Input.GetMouseButtonDown(0))
             {
                 StartJump();
@@ -148,14 +137,13 @@ public class S_PlayerControls_Madeline : MonoBehaviour
         else{
 
             falling = rb.velocity.y < -0.01f;
+            walkingSource.Pause();
             animator.SetBool("Falling", falling);
         }
 
         GoThroughPlatform();
 
         setFlip();
-
-        lastVelocity = rb.velocity;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -165,9 +153,12 @@ public class S_PlayerControls_Madeline : MonoBehaviour
         if(collision.gameObject.tag == "Floor" && grounded == false)
         {
             grounded = true;
-            if(previousYVelocity < -minLandVelocity){
+            justLanded = true;
+            if (previousYVelocity < -minLandVelocity){
+                airtimeSource.Stop();
+                S_SoundManager.instance.PlayClip(landSound, transform, 0.5f * Mathf.Clamp(Mathf.Pow(-previousYVelocity / 20f, 2), 0.15f, 1f));
                 Instantiate(landingParticles, transform.position- new Vector3(0,0.5f,0), Quaternion.Euler(-90,0,0));
-            }    
+            }
         }
     }
 
@@ -293,7 +284,7 @@ public class S_PlayerControls_Madeline : MonoBehaviour
         {
             rb.velocity += new Vector2(-moveSpeed * (1.0f / timeToMaxSpeed) * Time.deltaTime, 0);
             animator.SetBool("Walking", true);
-            if (!walkingSource.isPlaying) walkingSource.Play();
+            if (!walkingSource.isPlaying && grounded) walkingSource.Play();
             shouldFlip = true;
         }
 
@@ -301,7 +292,7 @@ public class S_PlayerControls_Madeline : MonoBehaviour
         {
             rb.velocity += new Vector2(moveSpeed * (1.0f / timeToMaxSpeed) * Time.deltaTime, 0);
             animator.SetBool("Walking", true);
-            if (!walkingSource.isPlaying) walkingSource.Play();
+            if (!walkingSource.isPlaying && grounded) walkingSource.Play();
             shouldFlip = false;
         }
     }
